@@ -328,19 +328,18 @@
       vertical-align: top;
       opacity: 0;
       visibility: visible;
-      transform: translateY(38px) scale(0.965);
+      transform: translateY(34px);
       transition:
-        opacity 0.9s ease,
-        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.45s ease,
-        filter 0.45s ease;
+        opacity 0.85s ease,
+        transform 0.85s ease,
+        box-shadow 0.45s ease;
       will-change: opacity, transform;
     }
 
     .photo.reveal-visible {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
 
     .photo.reveal-visible:hover {
@@ -760,7 +759,7 @@
     }
 
   
-    /* FINAL LAYOUT + POP EFFECT OVERRIDES */
+    /* FINAL MOBILE + HEADER OVERRIDES */
     @media (min-width: 901px) {
       .site-header {
         padding: 24px 32px 8px !important;
@@ -777,14 +776,6 @@
         position: relative !important;
         top: auto !important;
         right: auto !important;
-        width: 52px !important;
-        height: 42px !important;
-        gap: 10px !important;
-      }
-
-      .menu-toggle span {
-        width: 42px !important;
-        height: 3px !important;
       }
 
       .hero-identity {
@@ -828,19 +819,14 @@
     @media (max-width: 560px) {
       .site-header {
         padding: 16px 18px 4px !important;
-        justify-content: space-between !important;
       }
 
       .brand-logo {
         width: 118px !important;
         max-width: 42vw !important;
-        margin: 0 !important;
       }
 
       .menu-toggle {
-        position: relative !important;
-        top: auto !important;
-        right: auto !important;
         width: 44px !important;
         height: 38px !important;
         gap: 8px !important;
@@ -890,12 +876,12 @@
         display: block !important;
         border-radius: 12px !important;
         break-inside: auto !important;
-        opacity: 0 !important;
+        opacity: 0.28 !important;
         visibility: visible !important;
-        transform: translateY(30px) scale(0.965) !important;
+        transform: translateY(22px) scale(0.985) !important;
         transition:
-          opacity 0.88s ease,
-          transform 0.88s cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 0.8s ease,
+          transform 0.8s ease,
           box-shadow 0.45s ease,
           filter 0.45s ease !important;
       }
@@ -931,6 +917,56 @@
       .section-title::after {
         margin-left: auto !important;
         margin-right: auto !important;
+      }
+    }
+
+  
+    /* FINAL MOBILE + TRUE FADE-IN OVERRIDES */
+    @media (max-width: 560px) {
+      .gallery-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        columns: unset !important;
+        column-gap: 0 !important;
+        gap: 10px !important;
+      }
+
+      .photo {
+        width: 100% !important;
+        margin: 0 !important;
+        display: block !important;
+        border-radius: 12px !important;
+        break-inside: auto !important;
+        opacity: 0 !important;
+        visibility: visible !important;
+        transform: translateY(28px) scale(0.985) !important;
+        transition:
+          opacity 0.9s ease,
+          transform 0.9s ease,
+          box-shadow 0.45s ease,
+          filter 0.45s ease !important;
+      }
+
+      .photo.reveal-visible {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) scale(1) !important;
+      }
+
+      .ratio-portrait,
+      .ratio-square,
+      .ratio-landscape,
+      .gallery-grid .photo:nth-child(4n + 1),
+      .gallery-grid .photo:nth-child(5n + 2),
+      .gallery-grid .photo:nth-child(6n + 4) {
+        aspect-ratio: 4 / 5 !important;
+      }
+
+      .photo img {
+        opacity: 1 !important;
+        visibility: visible !important;
+        display: block !important;
+        object-fit: cover !important;
       }
     }
 
@@ -1060,7 +1096,7 @@
     <section class="section" id="events">
       <h1 class="section-title">Events</h1>
 
-            <div class="gallery-grid">
+      <div class="gallery-grid">
         <div class="photo ratio-square">
           <img src="images/events/event-1.jpg" alt="Event photography" loading="eager" decoding="async">
         </div>
@@ -1120,39 +1156,8 @@
         <div class="photo ratio-landscape">
           <img src="images/events/event-15.jpg" alt="Event photography" loading="eager" decoding="async">
         </div>
-
-        <div class="photo ratio-square">
-          <img src="images/events/event-16.jpg" alt="Event photography" loading="eager" decoding="async">
-        </div>
-
-        <div class="photo ratio-portrait">
-          <img src="images/events/event-17.jpg" alt="Event photography" loading="eager" decoding="async">
-        </div>
-
-        <div class="photo ratio-landscape">
-          <img src="images/events/event-18.jpg" alt="Event photography" loading="eager" decoding="async">
-        </div>
-
-        <div class="photo ratio-portrait">
-          <img src="images/events/event-19.jpg" alt="Event photography" loading="eager" decoding="async">
-        </div>
-
-        <div class="photo ratio-square">
-          <img src="images/events/event-20.jpg" alt="Event photography" loading="eager" decoding="async">
-        </div>
-
-        <div class="photo ratio-portrait">
-          <img src="images/events/event-21.jpg" alt="Event photography" loading="eager" decoding="async">
-        </div>
-
-        <div class="photo ratio-landscape">
-          <img src="images/events/event-22.jpg" alt="Event photography" loading="eager" decoding="async">
-        </div>
-
-        <div class="photo ratio-square">
-          <img src="images/events/event-23.jpg" alt="Event photography" loading="eager" decoding="async">
-        </div>
-      </div></section>
+      </div>
+    </section>
 
     <section class="bio-section fade-section" id="bio">
       <div class="bio-layout">
@@ -1306,30 +1311,59 @@
 
     const revealItems = document.querySelectorAll(".photo, .fade-section");
 
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const allPhotos = Array.from(document.querySelectorAll(".photo"));
-          const photoIndex = allPhotos.indexOf(entry.target);
+    function revealVisibleItems() {
+      revealItems.forEach((item, index) => {
+        const rect = item.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight + 180 && rect.bottom > -140;
 
-          if (photoIndex >= 0) {
-            entry.target.style.transitionDelay = `${Math.min(photoIndex % 6, 5) * 90}ms`;
+        if (isVisible && !item.classList.contains("reveal-visible")) {
+          if (item.classList.contains("photo")) {
+            item.style.transitionDelay = `${Math.min(index % 6, 5) * 80}ms`;
           }
 
-          entry.target.classList.add("reveal-visible");
-          observer.unobserve(entry.target);
+          item.classList.add("reveal-visible");
         }
       });
-    }, {
-      threshold: 0.12,
-      rootMargin: "0px 0px -40px 0px"
+    }
+
+    function keepCheckingDuringPaint() {
+      revealVisibleItems();
+
+      setTimeout(revealVisibleItems, 150);
+      setTimeout(revealVisibleItems, 400);
+      setTimeout(revealVisibleItems, 800);
+      setTimeout(revealVisibleItems, 1400);
+    }
+
+    window.addEventListener("load", keepCheckingDuringPaint);
+    window.addEventListener("scroll", revealVisibleItems, { passive: true });
+    window.addEventListener("resize", revealVisibleItems);
+    window.addEventListener("orientationchange", keepCheckingDuringPaint);
+
+    requestAnimationFrame(keepCheckingDuringPaint);
+
+    document.querySelectorAll(".photo img").forEach((img) => {
+      if (img.complete) {
+        revealVisibleItems();
+      } else {
+        img.addEventListener("load", revealVisibleItems, { once: true });
+      }
     });
+    } else {
+      revealItems.forEach((item) => item.classList.add("reveal-visible"));
+    }
 
-    revealItems.forEach((item) => {
-      revealObserver.observe(item);
-    });
-
-
+    window.addEventListener("load", revealVisibleItems);
+    window.addEventListener("scroll", revealVisibleItems, { passive: true });
+    window.addEventListener("resize", revealVisibleItems);
+    requestAnimationFrame(revealVisibleItems);
+    setTimeout(revealVisibleItems, 150);
+    setTimeout(revealVisibleItems, 450);
+    setTimeout(revealVisibleItems, 900);
+    setTimeout(revealVisibleItems, 1500);
+    requestAnimationFrame(revealVisibleItems);
+    setTimeout(revealVisibleItems, 250);
+    setTimeout(revealVisibleItems, 800);
 
     const photos = document.querySelectorAll(".photo img");
     const lightbox = document.getElementById("lightbox");
